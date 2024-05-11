@@ -1,2 +1,2 @@
 # GithubUsers
-The app to display giltab users
+The app to display github users
