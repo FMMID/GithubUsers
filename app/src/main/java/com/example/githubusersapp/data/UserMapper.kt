@@ -1,4 +1,7 @@
 package com.example.githubusersapp.data
 
-class UserMapper {
+import javax.inject.Inject
+
+class UserMapper @Inject constructor() {
+
 }

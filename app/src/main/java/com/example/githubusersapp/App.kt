@@ -1,9 +1,7 @@
 package com.example.githubusersapp
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
-class App : Application() {
-
-    //TODO("Impliment DI")
-
-}
+@HiltAndroidApp
+class App : Application()

@@ -1,4 +1,4 @@
-package com.example.githubusersapp.presentation
+package com.example.githubusersapp.domain
 
 interface IUserRepository {
 
