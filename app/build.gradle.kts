@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.kotlinAndroid)
     alias(libs.plugins.hilt)
     alias(libs.plugins.kotlinSerialization)
+    alias(libs.plugins.navigationSafeArgs)
 }
 
 android {
@@ -12,8 +13,8 @@ android {
     compileSdk = 34
 
     buildFeatures {
-        dataBinding = true
         viewBinding = true
+        dataBinding = true
     }
 
     defaultConfig {
