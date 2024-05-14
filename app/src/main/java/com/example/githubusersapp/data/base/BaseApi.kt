@@ -57,9 +57,12 @@ abstract class BaseApi(
             protocol = URLProtocol.HTTPS
             host = baseUrl
 
+            path()
+
             if (path.isEmpty()) {
                 path(endpoint)
             } else {
+                path(endpoint)
                 pathSegments = listOf(endpoint) + path
             }
         }

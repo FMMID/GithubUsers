@@ -1,6 +1,10 @@
 package com.example.githubusersapp.domain
 
-//TODO("impl full data")
-class UserFullInfo(id: Long, login: String, avatar: String) : UserBaseInfo(id, login, avatar) {
-
-}
+data class UserFullInfo(
+    val userBaseInfo: UserBaseInfo,
+    val email: String,
+    val organization: String,
+    val followingCount: Long,
+    val followersCount: Long,
+    val createdAt: String
+)

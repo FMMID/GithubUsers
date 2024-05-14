@@ -15,9 +15,9 @@ class UserListVM @Inject constructor(
 
     val usersFlow = userRepository.getFlowOfUsers().cachedIn(viewModelScope)
 
-    fun goToUserDetails(userId: Long) {
+    fun goToUserDetails(login: String) {
         viewModelScope.launch {
-            mutableStateFlowNavigation.emit(UserListNavigation.NavigateToUserDetails(userId = userId.toString()))
+            mutableStateFlowNavigation.emit(UserListNavigation.NavigateToUserDetails(login))
         }
     }
 }

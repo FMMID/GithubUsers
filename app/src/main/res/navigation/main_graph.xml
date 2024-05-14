@@ -24,7 +24,7 @@
         tools:layout="@layout/user_details_fragment">
 
         <argument
-            android:name="userId"
+            android:name="userName"
             android:defaultValue='""'
             app:argType="string" />
     </fragment>

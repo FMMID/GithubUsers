@@ -2,12 +2,13 @@ package com.example.githubusersapp.data.remote
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.example.githubusersapp.data.remote.mappers.UserBaseInfoMapper
 import com.example.githubusersapp.domain.UserBaseInfo
 import javax.inject.Inject
 
 class UsersPagingSource @Inject constructor(
     private val userApi: IUserApi,
-    private val userRemoteMapper: UserRemoteMapper
+    private val userBaseInfoMapper: UserBaseInfoMapper
 ) : PagingSource<Int, UserBaseInfo>() {
 
     override fun getRefreshKey(state: PagingState<Int, UserBaseInfo>): Int? {
@@ -24,7 +25,7 @@ class UsersPagingSource @Inject constructor(
             val nextKey = if (usersList.isEmpty()) null else nextPageNumber + usersList.size
 
             LoadResult.Page(
-                data = userRemoteMapper.map(usersList),
+                data = userBaseInfoMapper.map(usersList),
                 prevKey = null,
                 nextKey = nextKey
             )
