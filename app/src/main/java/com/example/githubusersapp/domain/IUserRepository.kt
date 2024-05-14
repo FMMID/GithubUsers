@@ -1,7 +1,9 @@
 package com.example.githubusersapp.domain
 
+import androidx.paging.PagingData
+import kotlinx.coroutines.flow.Flow
+
 interface IUserRepository {
 
-    //TODO implement getUsers(), getUser()
-
+    fun getFlowOfUsers(): Flow<PagingData<UserBaseInfo>>
 }

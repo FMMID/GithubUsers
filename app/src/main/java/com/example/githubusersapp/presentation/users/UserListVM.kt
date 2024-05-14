@@ -1,9 +1,23 @@
 package com.example.githubusersapp.presentation.users
 
+import androidx.lifecycle.viewModelScope
+import androidx.paging.cachedIn
+import com.example.githubusersapp.domain.IUserRepository
 import com.example.githubusersapp.presentation.base.BaseVM
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-//TODO impliment get paging data, navigate to user details
 @HiltViewModel
-class UserListVM @Inject constructor() : BaseVM<UserListNavigation>()
+class UserListVM @Inject constructor(
+    private val userRepository: IUserRepository
+) : BaseVM<UserListNavigation>() {
+
+    val usersFlow = userRepository.getFlowOfUsers().cachedIn(viewModelScope)
+
+    fun goToUserDetails(userId: Long) {
+        viewModelScope.launch {
+            mutableStateFlowNavigation.emit(UserListNavigation.NavigateToUserDetails(userId = userId.toString()))
+        }
+    }
+}
