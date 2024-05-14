@@ -22,7 +22,7 @@ class UsersPagingSource @Inject constructor(
         return try {
             val nextPageNumber = params.key ?: 0
             val usersList = userApi.getUsers(nextPageNumber)
-            val nextKey = if (usersList.isEmpty()) null else nextPageNumber + usersList.size
+            val nextKey = if (usersList.isEmpty()) null else (usersList.last().id + 1).toInt()
 
             LoadResult.Page(
                 data = userBaseInfoMapper.map(usersList),
